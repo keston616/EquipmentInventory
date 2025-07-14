@@ -1,0 +1,23 @@
+﻿<Application x:Class="EquipmentAccounting.App"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:local="clr-namespace:EquipmentAccounting"
+             xmlns:viewModels="clr-namespace:EquipmentAccounting.ViewModels"
+             xmlns:converter="clr-namespace:EquipmentAccounting.Converters"
+             xmlns:views="clr-namespace:EquipmentAccounting.VIews"
+             StartupUri="Views\MainWindow.xaml">
+    <Application.Resources>
+        <ResourceDictionary>
+            <converter:NullToBoolConverter x:Key="NullToBoolConverter"/>
+            <DataTemplate DataType="{x:Type viewModels:MainViewModel}">
+                <views:ListEquipmentView/>
+            </DataTemplate>
+            <DataTemplate DataType="{x:Type viewModels:AddEquipmentViewModel}">
+                <views:AddEquipmentView/>
+            </DataTemplate>
+            <DataTemplate DataType="{x:Type viewModels:EditEquipmentViewModel}">
+                <views:EditEquipmentView/>
+            </DataTemplate>
+        </ResourceDictionary> 
+    </Application.Resources>
+</Application>
